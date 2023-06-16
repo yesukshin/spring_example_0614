@@ -23,7 +23,7 @@ public class Lesson02Ex01RestContoller {
 	//-VO : value object(read-only)
 	@RequestMapping("lesson02/ex01")
 	public List<UsedGoods> ex01(){
-		//BO(Business Object) = service
+		//BO(Business Object) = service 호출함
 		List<UsedGoods> usedGoodsList = usedGoodsBo.getUsedGoodsList();
 		return usedGoodsList; // json응답
 	}

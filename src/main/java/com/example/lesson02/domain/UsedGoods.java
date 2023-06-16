@@ -2,7 +2,7 @@ package com.example.lesson02.domain;
 
 import java.util.Date;
 
-// 일반자바,,스프링에서는 해당 존재를 모른다
+// 일반자바,스프링에서는 해당 존재를 모른다
 public class UsedGoods {
 	
 	private int id;
