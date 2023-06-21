@@ -37,6 +37,7 @@ public class Lesson01Ex01RestController {
 		Data data = new Data();  // 자바 bean
 		data.setId(1);
 		data.setName("신예숙");
+		data.setAddr("주소");
 		
 		return data;
 	}

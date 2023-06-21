@@ -17,7 +17,7 @@ public class Lesson03Ex01RestController {
 	//http://localhost:88/lesson03/ex01?id=3
 	@RequestMapping("/lesson03/ex01")
 	public Review ex01(
-			@RequestParam("id") int id  // 아규먼트가 id한개일때 필수파라미터로
+			@RequestParam("id") int id1  // 아규먼트가 id한개일때 필수파라미터로
 			//@RequestParam(value = "id") int id, // 필수파라미터
 			//@RequestParam(value = "id", required = true) int id) // 필수파라미터
 			//@RequestParam(value = "id", required = false) Integer id // 비필수파라미터
@@ -26,7 +26,7 @@ public class Lesson03Ex01RestController {
 			)
 	{
 		
-		return reviewBO.getReviewById(id);
+		return reviewBO.getReviewById(id1);
 	    
 	}
 

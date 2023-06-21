@@ -8,21 +8,20 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.lesson03.BO.ReviewBO;
 
 @RestController
-public class Lesson03Ex03RestController {
+public class Lesson03Ex04RestController {
+	
 	
 	@Autowired
 	private ReviewBO reviewBO;
-	
-	// http://localhost:88/lesson03/ex03
-	@RequestMapping("/lesson03/ex03")
-	//?id=23&review=도미노피자역시맛있다
-	public String ex03(
-			@RequestParam("id") int id,
-			@RequestParam("review") String review) {
+	//http://localhost/lesson03/ex04
+	@RequestMapping("/lesson03/ex04")
+	public String ex04(
+			@RequestParam("id") int id) {
 		
-		int row =  reviewBO.updateReviewById(id,review);
+		reviewBO.deleteReviewById(id);
+		return "삭제성공";
 		
-		return "변경건수" + row;
 		
 	}
+
 }
