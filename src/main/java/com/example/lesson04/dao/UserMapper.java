@@ -11,7 +11,7 @@ public interface UserMapper {
 	public void insertUser(@Param("name") String name, 
 			@Param("yyyymmdd") String yyyymmdd,
 			@Param("email") String email, 
-			@Param("introdude") String introdude);
+			@Param("introduce") String introduce);
 	
 	public User selectLatestUser() ;
 

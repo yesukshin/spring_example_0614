@@ -28,31 +28,31 @@
 		<table class = "table table-striped">	
 		   <tr>
 		     <th>아이디</th>
-		     <td>${user.id}</td>
+		     <td>${result.id}</td>
 		   </tr>
 		   <tr>
 		     <th>이름</th>
-		     <td>${user.name}</td>
+		     <td>${result.name}</td>
 		   </tr>
 		   <tr>
 		     <th>생년월일</th>
-		     <td>${user.yyyymmdd}</td>
+		     <td>${result.yyyymmdd}</td>
 		   </tr>
 		   <tr>
 		     <th>이메일</th>
-		     <td>${user.email}</td>
+		     <td>${result.email}</td>
 		   </tr>
 		   <tr>
 		     <th>자기소개</th>
-		     <td>${user.introduce}</td>
+		     <td>${result.introduce}</td>
 		   </tr>
 		   <tr>
 		     <th>생성일</th>
-		     <td>${user.createdAt}</td>
+		     <td>${result.createdAt}</td>
 		   </tr>
 		   <tr>
 		     <th>수정일</th>
-		     <td>${user.updatedAt}</td>
+		     <td>${result.updatedAt}</td>
 		   </tr>
 		</table>
 

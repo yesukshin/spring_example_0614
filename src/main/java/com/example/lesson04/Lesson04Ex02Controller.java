@@ -18,7 +18,7 @@ public class Lesson04Ex02Controller {
 	@Autowired
 	private StudentBO studentBO;
 	
-	@GetMapping("/add_stident_view")
+	@GetMapping("/add_student_view")
 	public String addStidentView() {
 		
 		return "lesson04/addStudent";

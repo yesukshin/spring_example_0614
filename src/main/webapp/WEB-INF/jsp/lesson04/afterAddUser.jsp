@@ -7,6 +7,6 @@
 <title>회원가입성공</title>
 </head>
 <body>
-
+  <h1>회원가입성공</h1>
 </body>
 </html>

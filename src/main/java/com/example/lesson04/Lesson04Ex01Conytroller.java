@@ -20,7 +20,6 @@ public class Lesson04Ex01Conytroller {
 	private UserBO userBO;
 	//_view
 	//@RequestMapping get,post모두다됨
-	// 
 	@RequestMapping(path = "/add_user_view", method=RequestMethod.GET)
 	public String addUserView() {
 		//WEB-INF/jsp/ 
@@ -29,6 +28,7 @@ public class Lesson04Ex01Conytroller {
 		return "lesson04/addUser" ;
 	}
 	
+	// 데이터 등록 할때는 POST
 	@PostMapping("/add_user")
 	public String addUser(
 			@RequestParam("name") String name,
@@ -40,25 +40,27 @@ public class Lesson04Ex01Conytroller {
 		userBO.addUser(name, yyyymmdd, email, introduce);
 		
 		// 결과페이지
+		// prefix=/WEB-INF/jsp/
+		// suffix=.jsp
 		return "lesson04/afterAddUser";
 		
 	}
 	
 	@GetMapping("/get_latest_user")
 	public String getLatestUserView(Model model) {
-		// DB select
+		
+		// DB select 한다
 		User user = userBO.getLatestUser();
 				
 		//뷰화면에 데이터를 사용하수있도록 담는 객체
-		//model는 map이랑 동일항게
+		//model는 map이랑 동일항게 키/값
 		model.addAttribute("result", user);
-		model.addAttribute("title", "회원정보");
+		model.addAttribute("title", "회원정보조회");
 		
 		
 		//결과페이지
-		return "lesson04/getLatestUser";
+		return "lesson04/getLatestUser"; 
 		
 	}
 	
-
 }
