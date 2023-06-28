@@ -13,7 +13,7 @@
 <body>
 <div class = "container">
    <h1>회원가입</h1>   
-   <form method="post" action="/lesson06/ex01/add_user">
+   <form method="post" action="/lesson06/ex01/add_user1">
    		<div class="form-group">
    			<label for="name">이름</label>
    			<input type="text" id = "name" name ="name" class="form-controll col-3" placeholder="이름을 입력하세요">
@@ -30,91 +30,87 @@
    			<label for="introduce">자기소개</label>
    			<textarea  id = "introduce" name ="introduce" class="form-controll col-3"></textarea>
    		</div>
-   		<!-- AJAX통신을 호출할때는 반드시 버튼을 button타입으로 지정한다(form -->
-        <!-- <input type="submit" class="btn btn-info" value="회원가입"> -->
-        <input type="button" id = "joinBtn" class="btn btn-info" value="회원가입">
+   		<!-- AJAX통신을 호출할때는 반드시 버튼을 button타입으로 지정한다(form 3종세트 동작안하게-->
+        <!-- <input type="submit" class="btn btn-info" value="회원가입"> --> 
+        <input type="button" id = "joinBtn" class="btn btn-info" value="회원가입"> 
    
    </form>
-   
 </div>   
-<script>
 
-   $(document).ready(function() {
-	   // 1. form태그 - submit
-	   // submit이 일어날때(form태그가 일어날때))
-	   /*  $('form').on('submit', function(e) {
-		   //e.preventDefult();//submit되는것을 막는다(화면유지)
-		   //alert("서브밋 버튼 클릭");
-		   //validation
-		   let name = $('#name').val().trim();
-		   if (name == '') {
-			   alert("이름을 입력하세요");
-			   return false;//서브밋 안함, 서브밋 이벤트일때는 return false
-		   }
-		   
-		   let yyyymmdd = $('#yyyymmdd').val().trim();
-		   if (!yyyymmdd) {
-			   alert("생년월일을 입력하세요");
-			   return false;//서브밋 안함, 서브밋 이벤트일때는 return false
-		   }
-		   // 여기까지 도달하면 서브밋 수행
-		   alert("서브밋 수행");
-	   }) */
-	   
-	   
-	   //2) jquery의 AJAX 통신 이용하기
-	   
-	   
-	   $('#joinBtn').on('click', function() {
-   			
-   			//validation
-		   let name = $('#name').val().trim();
-		   if (name == '') {
-			   alert("이름을 입력하세요");
-			   return;//서브밋 안함, 서브밋 이벤트일때는 return false
-		   }
-		   
-		   let yyyymmdd = $('#yyyymmdd').val().trim();
-		   if (!yyyymmdd) {
-			   alert("생년월일을 입력하세요");
-			   return;//서브밋 안함, 서브밋 이벤트일때는 return false
-		   }
-		   
-		   let email = $('input[name=email]').val().trim();
-		   let introduce = $('input[name=introduce]').val();
-		   
-		   console.log(name);
-		   console.log(yyyymmdd);
-		   console.log(email);
-		   console.log(introduce);
-		   
-		   // 서버전송 - AJAX 통신 - 브라우저가 하는걸 AJAX가 다한다
-		   /*$.ajax({
-			   // request
-			   type:"post" //"POST"도 가능
-			   ,url:"/lesson06/ex01/add_user" // 뷰페이지로 절대 보내지 않음
-			   ,data:{"name":name, "yyyymmdd":yyyymmdd, "email":email,"introduce":introduce}
-		   
-			   // response , d는 response의 결과값
-			   ,success:function(d){
-				   alert(d);
-				   if(d=="성공") {
-					   location.href = "/lesson06/ex01/after_add_user_view";
-				   }else {
-					   alert("회원가입에 실패했습니다.");
-				   }
-			   }   
-			   ,complete:function() {
-				   alert("성공이든 실패든 완료되면 띄워진다");
-			   }	   
-			   ,error:function(request, status, error) {
-				   alert(request);
-				   alert(status);
-				   alert(error);
-			   }
-		   })*/
-   		})  
-   })
+<script>
+	$(document).ready(function() {
+		//1. 폼태그 - submit
+		// 폼태그 서브밋 이벤트가 발생될때 가로채서 해당 익명함수가 처리된다
+/* 		$('form').on('submit', function(e) {
+			//e.preventDefault();//서브밋되는것을 막음, 화면유지됨
+			//alert("서브밋 버튼클릭");
+			
+			//validation
+			let name = $('#name').val().trim();
+			if(name==''){
+				alert("이름을 입력하세요");
+				return false;//submit안함, return false 반드시 해야함
+			}
+			
+			let yyyymmdd = $('#yyyymmdd').val().trim();
+			if(!yyyymmdd){
+				alert("생년월일을 입력하세요");
+				return false;//submit안함, return false 반드시 해야함
+			}
+			//여기까지 도달하면 서브밋 수행
+			alert("서브밋 수행");
+		}); */
+		
+		//2. jquery의 AJAX통신 이용하기(폼태그 이용안함)
+		$('#joinBtn').on('click', function() {
+			//validation 체크
+			let name = $('#name').val().trim();
+			if(name==''){
+				alert("이름을 입력하세요");
+				return ;
+			}
+			
+			let yyyymmdd = $('#yyyymmdd').val().trim();
+			if(!yyyymmdd){
+				alert("생년월일을 입력하세요");
+				return ;
+			}
+			// input태그인데 그중에 name이 email인걸 가져온다
+			let email = $('input[name=email]').val().trim();
+			let introduce = $('#introduce').val();
+			
+			/* console.log(name);
+			console.log(yyyymmdd);
+			console.log(email);
+			console.log(introduce); */
+			
+			//서버전송 - AJAX 통신, 폼테그의 기능과 동일하게 만듬
+			$.ajax({
+				// request
+				type:"POST"
+				, url:"/lesson06/ex01/add_user"//view페이지로 보내지 않음
+				, data:{"name": name, "yyyymmdd": yyyymmdd,"email": email,"introduce": introduce}
+				
+				// response, data는 response의 결과응답
+				, success:function(data){
+					//alert(data);
+					if(data=="성공"){
+						location.href="/lesson06/ex01/after_add_user_view";
+					}else{
+						alert("회원가입 실패");
+					}
+				}
+				, complete:function(data){
+					//alert("성공이든 실패든 완료되면 띄워진다");
+				}
+				,error:function(request, status, error){
+					alert(request);
+					alert(status);
+					alert(error);
+				}
+			});
+		});
+	});
 
 </script>
 </body>

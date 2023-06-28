@@ -28,7 +28,7 @@ public class Lesson06Ex01Controller {
 		
 	}
 	
-	// AJAX가 요청한 곳 = > response는 반드시 String(Data)이어야 함
+	// AJAX가 요청한 곳 = > response는 반드시 String(뷰가아니라 Data)이어야 함
 	@PostMapping("/add_user")
 	@ResponseBody
 	public String addUser(
@@ -38,14 +38,14 @@ public class Lesson06Ex01Controller {
 			@RequestParam(value ="introduce", required=false) String introduce
 			) {
 		// db insert
-		addUser(name, yyyymmdd, email, introduce);
+		userBO.addUser(name, yyyymmdd, email, introduce);
 		
 		// return String
 		return "성공"; //ResponseBody에 성공글자가 담긴다
 	}
 	
 	
-	
+	//입력성공페이지
 	@GetMapping("/after_add_user_view")
 	public String afterAddUserView() {
 		
