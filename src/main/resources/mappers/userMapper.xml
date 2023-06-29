@@ -36,5 +36,12 @@
 	 LIMIT 1
 	 
 	</select>
-
+    
+    <select id = "existUserByName" parameterType= "string" resultType = "boolean">
+    
+    SELECT COUNT(1) <!-- 0:false, 0아니면 모두: true --> 
+      FROM `new_user`
+     WHERE `name` = #{name}
+    
+    </select>
 </mapper>
